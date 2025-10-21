@@ -1,6 +1,9 @@
 export function validateCarNames(cars) {
   cars.forEach((name, index) => {
     if (!name) {
+      if (cars[cars.length - 1] === "") {
+        throw new Error("[ERROR] 마지막 쉼표 뒤에 자동차 이름이 없습니다.");
+      }
       throw new Error(
         `[ERROR] 자동차 이름이 비어 있습니다 (인덱스 ${index + 1})`,
       );
