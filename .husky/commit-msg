@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+PATTERN="^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,}"
+
+if ! echo "$COMMIT_MSG" | grep -Eq "$PATTERN"; then
+  echo "<type>(<scope>): <subject>"
+  echo "Allow Type) feat, fix, docs, style, refactor, test, chore"
+  echo "Example) feat: add login page"
+  echo "Example) fix(auth): handle token expiration"  
+  exit 1
+fi

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx prettier --check .
+if [ $? -ne 0 ]; then
+  echo "Code format check failed. Run 'npx prettier --write .' to fix."
+  exit 1
+fi
+
+echo "All checks passed!"
+exit 0
