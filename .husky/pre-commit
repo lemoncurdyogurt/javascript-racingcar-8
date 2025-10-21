@@ -1,8 +1,11 @@
 npx prettier --check .
+
 if [ $? -ne 0 ]; then
-  echo "Code format check failed. Run 'npx prettier --write .' to fix."
+  RED="\033[0;31m"
+  echo ${RED}"Code format check failed. Run 'npx prettier --write .' to fix.${RESET}"
   exit 1
 fi
 
-echo "All checks passed!"
+GREEN="\033[0;32m"
+echo "${GREEN}All checks passed!${RESET}"
 exit 0

@@ -4,9 +4,14 @@ COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 PATTERN="^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,}"
 
 if ! echo "$COMMIT_MSG" | grep -Eq "$PATTERN"; then
-  echo "<type>(<scope>): <subject>"
-  echo "Allow Type) feat, fix, docs, style, refactor, test, chore"
-  echo "Example) feat: add login page"
-  echo "Example) fix(auth): handle token expiration"  
+  RED="\033[0;31m"
+  echo "${RED}<type>(<scope>): <subject>${RESET}"
+  echo "${RED}Allow Type) feat, fix, docs, style, refactor, test, chore${RESET}"
+  echo "${RED}Example) feat: add login page${RESET}"
+  echo "${RED}Example) fix(auth): handle token expiration${RESET}"  
   exit 1
 fi
+
+GREEN="\033[0;32m"
+echo "${GREEN}Commit message convention passed!${RESET}"
+exit 0
