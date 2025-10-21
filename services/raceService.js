@@ -1,9 +1,7 @@
-import { shouldMove } from "./carMovement.js";
+import { moveCar } from "./carMovement";
 
-export function moveCar(cars) {
-  cars.forEach((car) => {
-    if (shouldMove) {
-      car.distance += 1;
-    }
-  });
+export function playRace(cars, attempt) {
+  for (let i; i < attempt; i++) {
+    moveCar(cars);
+  }
 }
