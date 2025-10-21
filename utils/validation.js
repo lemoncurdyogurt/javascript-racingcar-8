@@ -1,7 +1,16 @@
 export function validateCarNames(cars) {
-  if (!cars.every((name) => name && name.length <= 5)) {
-    throw new Error("[ERROR] 자동차 이름은 1~5자여야 합니다.");
-  }
+  cars.forEach((name, index) => {
+    if (!name) {
+      throw new Error(
+        `[ERROR] 자동차 이름이 비어 있습니다 (인덱스 ${index + 1})`,
+      );
+    }
+    if (name.length > 5) {
+      throw new Error(
+        `[ERROR] 자동차 이름은 5자를 초과할 수 없습니다 (이름: ${name})`,
+      );
+    }
+  });
 }
 export function hasDuplicateNames(cars) {
   if (new Set(cars).size !== cars.length) {
