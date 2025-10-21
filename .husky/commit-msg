@@ -3,6 +3,7 @@ COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
 PATTERN="^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,}"
 
+RESET="\033[0m"
 if ! echo "$COMMIT_MSG" | grep -Eq "$PATTERN"; then
   RED="\033[0;31m"
   echo "${RED}<type>(<scope>): <subject>${RESET}"

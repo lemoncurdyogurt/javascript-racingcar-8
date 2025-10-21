@@ -1,5 +1,5 @@
 npx prettier --check .
-
+RESET="\033[0m"
 if [ $? -ne 0 ]; then
   RED="\033[0;31m"
   echo ${RED}"Code format check failed. Run 'npx prettier --write .' to fix.${RESET}"
