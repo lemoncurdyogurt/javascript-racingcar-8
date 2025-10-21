@@ -22,6 +22,7 @@ class App {
       const attempt = Number(num);
       validateAttempts(attempt);
 
+      Console.print("\n"); // 사용자 입력값과 출력문 사이에 한 줄 띄우기
       playRace(cars, attempt);
     } catch (e) {
       Console.print(`${e.message}`);
