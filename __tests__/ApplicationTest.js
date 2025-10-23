@@ -100,4 +100,24 @@ describe("자동차 경주", () => {
       "[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.",
     );
   });
+
+  test("이름 공백 예외 테스트1", async () => {
+    const inputs = ["pobi, , woni"];
+    mockQuestions(inputs);
+
+    const app = new App();
+    await expect(app.run()).rejects.toThrow(
+      "[ERROR] 자동차 이름이 비어 있습니다 (인덱스 2)",
+    );
+  });
+
+  test("이름 공백 예외 테스트2", async () => {
+    const inputs = ["pobi, woni,"];
+    mockQuestions(inputs);
+
+    const app = new App();
+    await expect(app.run()).rejects.toThrow(
+      "[ERROR] 마지막 쉼표 뒤에 자동차 이름이 없습니다.",
+    );
+  });
 });
