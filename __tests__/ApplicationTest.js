@@ -59,4 +59,25 @@ describe("자동차 경주", () => {
       "[ERROR] 자동차 이름은 5자를 초과할 수 없습니다 (이름: javaji)",
     );
   });
+
+  test("공동 우승자 테스트", async () => {
+    const inputs = ["pobi, woni", "2"];
+    const logs = [
+      "pobi : -",
+      "woni : ",
+      "pobi : -",
+      "woni : -",
+      "최종 우승자 : pobi, woni",
+    ];
+    const logSpy = getLogSpy();
+
+    mockQuestions(inputs);
+    mockRandoms([5, 5]);
+
+    const app = new App();
+    await app.run();
+    logs.forEach((log) => {
+      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
+    });
+  });
 });
