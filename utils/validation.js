@@ -5,12 +5,12 @@ export function validateCarNames(cars) {
         throw new Error("[ERROR] 마지막 쉼표 뒤에 자동차 이름이 없습니다.");
       }
       throw new Error(
-        `[ERROR] 자동차 이름이 비어 있습니다 (인덱스 ${index + 1})`,
+        `[ERROR] 자동차 이름이 비어 있습니다.(인덱스 ${index + 1})`,
       );
     }
     if (name.length > 5) {
       throw new Error(
-        `[ERROR] 자동차 이름은 5자를 초과할 수 없습니다 (이름: ${name})`,
+        `[ERROR] 자동차 이름은 5자를 초과할 수 없습니다.(이름: ${name})`,
       );
     }
   });

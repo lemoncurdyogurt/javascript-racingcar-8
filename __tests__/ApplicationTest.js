@@ -77,7 +77,7 @@ describe("자동차 경주", () => {
 
     // then
     await expect(app.run()).rejects.toThrow(
-      "[ERROR] 자동차 이름은 5자를 초과할 수 없습니다 (이름: javaji)",
+      "[ERROR] 자동차 이름은 5자를 초과할 수 없습니다.(이름: javaji)",
     );
   });
 
@@ -107,7 +107,7 @@ describe("자동차 경주", () => {
 
     const app = new App();
     await expect(app.run()).rejects.toThrow(
-      "[ERROR] 자동차 이름이 비어 있습니다 (인덱스 2)",
+      "[ERROR] 자동차 이름이 비어 있습니다.(인덱스 2)",
     );
   });
 
