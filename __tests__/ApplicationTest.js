@@ -46,20 +46,6 @@ describe("자동차 경주", () => {
     });
   });
 
-  test("예외 테스트", async () => {
-    // given
-    const inputs = ["pobi,javaji"];
-    mockQuestions(inputs);
-
-    // when
-    const app = new App();
-
-    // then
-    await expect(app.run()).rejects.toThrow(
-      "[ERROR] 자동차 이름은 5자를 초과할 수 없습니다 (이름: javaji)",
-    );
-  });
-
   test("공동 우승자 테스트", async () => {
     const inputs = ["pobi, woni", "2"];
     const logs = [
@@ -79,5 +65,29 @@ describe("자동차 경주", () => {
     logs.forEach((log) => {
       expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
     });
+  });
+
+  test("이름 길이 예외 테스트", async () => {
+    // given
+    const inputs = ["pobi,javaji"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+
+    // then
+    await expect(app.run()).rejects.toThrow(
+      "[ERROR] 자동차 이름은 5자를 초과할 수 없습니다 (이름: javaji)",
+    );
+  });
+
+  test("이름 중복 예외 테스트", async () => {
+    const inputs = ["pobi,pobi"];
+    mockQuestions(inputs);
+
+    const app = new App();
+    await expect(app.run()).rejects.toThrow(
+      "[ERROR] 자동차 이름이 중복되어 있습니다.",
+    );
   });
 });
