@@ -90,4 +90,14 @@ describe("자동차 경주", () => {
       "[ERROR] 자동차 이름이 중복되어 있습니다.",
     );
   });
+
+  test("시도 횟수 예외 테스트", async () => {
+    const inputs = ["pobi, woni", ""];
+    mockQuestions(inputs);
+
+    const app = new App();
+    await expect(app.run()).rejects.toThrow(
+      "[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.",
+    );
+  });
 });
