@@ -1,6 +1,9 @@
 import { Console } from "@woowacourse/mission-utils";
 import { playRace } from "../services/raceService.js";
 import { getWinner } from "../services/winnerService.js";
+
+import { getCars, getAttempts } from "../utils/inputHandler.js";
+
 class App {
   async run() {
     try {

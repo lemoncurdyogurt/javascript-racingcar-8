@@ -3,7 +3,7 @@ import {
   validateAttempts,
   hasDuplicateNames,
   validateCarNames,
-} from "./validation";
+} from "./validation.js";
 
 export const getCars = async () => {
   const carArray = await Console.readLineAsync(
