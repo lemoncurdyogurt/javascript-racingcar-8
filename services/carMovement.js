@@ -4,10 +4,13 @@ export function shouldMove() {
   const randomNumber = Random.pickNumberInRange(0, 9);
   return randomNumber >= 4;
 }
+
+function tryMove(car) {
+  if (shouldMove()) {
+    car.distance += 1;
+  }
+}
+
 export function moveCar(cars) {
-  cars.forEach((car) => {
-    if (shouldMove()) {
-      car.distance += 1;
-    }
-  });
+  cars.forEach(tryMove);
 }
