@@ -14,4 +14,4 @@ export const printRaceResult = (cars) => {
     Console.print(`${car.name} : ${"-".repeat(car.distance)}`);
   });
   Console.print("\n");
-}
+};
